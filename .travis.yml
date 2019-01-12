@@ -1,0 +1,7 @@
+language: objective-c
+osx_image: xcode10.1
+env:
+  - DESTINATION="OS=9.0,name=iPhone 6" SCHEME="EasyLocations" SDK=iphonesimulator
+
+script:
+  - xcodebuild clean build -project EasyLocations.xcodeproj -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO test | xcpretty -c
